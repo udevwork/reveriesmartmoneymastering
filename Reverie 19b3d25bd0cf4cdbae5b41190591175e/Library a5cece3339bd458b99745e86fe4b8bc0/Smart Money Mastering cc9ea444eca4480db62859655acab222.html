@@ -1,0 +1,734 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Smart Money Mastering</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cc9ea444-eca4-480d-b628-59655acab222" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/sticker_solid.png"/></div><h1 class="page-title">Smart Money Mastering</h1></header><div class="page-body"><blockquote id="fa97c6af-304d-456f-9d51-b76b5ec21f9e" class="block-color-blue"><a href="http://reveriebot.com">Home</a></blockquote><h3 id="5265e6d7-73f1-4165-9ca1-2691d7835938" class="">Вступление</h3><p id="bca3be81-b36e-470b-9f88-77234067ad4c" class="">Если ты читаешь это, скорее всего ваши трендовые линии, розничные модели, стратегии поддержки и сопротивления и пробои уровней нихера не работают. Тебе, вероятно, интересно, действительно ли кто-нибудь в мире трейдинга зарабатывает деньги, или это откровенное мошенничество. Ты, вероятно, в тупике, теряя деньги почти на каждой сделке. Поверь мне, я знаю это чувство, я был там , думая: “Неужели я просто дибил? Что я здесь упускаю?! Почему все остальные зарабатывают деньги?”
+
+Тратил по 14 часов в день в течение двух лет на изучение всего, что попадалось мне под руку. Вайкофф, концепции умных денег, волны Эллиота, классические концепции розничной торговли, пересечение скользящих средних, спрос и предложение. Это даже не десятая часть всего этого. Я изучал это но успеха не было. Представь, что ты вложили свои кровно заработанные деньги, свои сбережения, бесчисленные часы, свой пот, кровь и слезы, чтобы не получить ни цента прибыли. Конечно, есть случайные выигрыши, которые заставляют вас торговать, но это не то, ради чего ты вступил в торговую игру. Ты пришел сюда за постоянной прибылью. Ты пришел сюда, чтобы изменить свою жизнь.</p><p id="484ed4ae-db01-4726-ae0a-42c002c7c98e" class="">
+</p><blockquote id="eda17417-3848-49df-b3d4-c8c9dfd34bed" class="">&quot;Все идеи должны исходить от вашего понимания ценового действия, если его нет тогда ничего не сработает. Неважно что вы нашлепаете на своем графике, рынки диктуются ценовым действием, а не математическим выводом или анализом прошлой цены, вы ждете что 6ы это дало вам какой-то прогноз, которого нет. Рынок не будет реагировать на индикаторы. Индикатор только отражает математическо-исторические данные на то что цена уже сделала. Что не играет никакую роль для того что цена собирается сделать в будущем&quot; Майкл &quot;IСТ&quot; Хаддлстон</blockquote><hr id="1cd655ef-a8aa-462d-bbe9-9cba2a358a2d"/><p id="361ef43f-0b52-4829-b4b0-7140ccc95fac" class="">
+</p><h3 id="2c4f8b21-37e7-4102-be3e-8ddbab894b9b" class=""><strong>Что это?</strong></h3><p id="91aa7654-476c-402e-bea4-d27a85ff8cc6" class="">Ты можешь получить доступ к базе данных всего что нужно что бы перестать сливать бабки. Все что от тебя требуется - немного усилий что бы это причитать и не отходить от чертового плана ни на сантиметр! Забудь про индикаторы и каналы с сигналами. Когда ты это выучишь, ты сразу же отпишешься от всех чатов и пабликов которые просто засоряют тебе мозги. Просто не отклоняйся от плана, это твой путь к миллиону. </p><p id="c8d7c122-69ca-43ae-a6d7-d8000a0f03f5" class="">
+</p><p id="6f23cf34-4c8a-4a06-8329-c67e2f75e5a8" class=""><strong>Smart Money</strong>— это некий капитал, который относится к самым большим и умным игрокам на рынке. Зачастую это центральные банки, маркет-мейкеры, институциональные инвесторы, фонды и другие финансовые профессионалы.</p><p id="002be9b3-e89c-429b-8f88-a5333c863afc" class="">
+</p><p id="4721e450-f44b-4f03-93d5-113e2fbb969c" class=""><strong>Smart Money Concept </strong>— это совокупность инструментов, с помощью которых можно отследить действия крупных игроков на рынке.</p><p id="763b5b27-41eb-4aa7-996d-ddf084c76fc0" class="">
+</p><p id="0570fec1-3eeb-4740-aa50-809ac0703407" class=""><strong>Технический анализ</strong> — это выдуманный, ритейл трейдерами, стиль торговли, который является наживой для крупных участников рынка. Крупные участники (игроки) рынка имеют большой капитал, чтобы манипулировать ценой в том направлении, которое выгодно им, тем самым создать для себя идеальные условия закрытия сделки с помощью инструментов ритейл трейдеров. В этом и проявляется разница между двумя совершенно разными методами заработка.</p><hr id="f03bf97b-1f76-42e8-a0f5-021890421bf3"/><p id="8e08b24e-2e97-4656-8626-8f9a75b59e2a" class="">
+</p><h3 id="f157f5c4-fc62-4521-b1ec-1d4c58d9c5ae" class="">Liquidity</h3><p id="22fbb078-b50c-4d87-8554-a7026815f1a5" class="">Ликвидность действует как магнит для цены. Цена всегда находится в поиске ликвидности. Думайте о рынке как о поезде. Он делает остановки, чтобы забрать и выгрузить пассажиров в определенных местах. Как профессиональные трейдеры, мы всегда должны быть осведомлены о пулах ликвидности.
+Так где же формируется ликвидность? Мы можем рассматривать старые максимумы и предыдущие минимумы как точки ликвидности. Мы можем рассматривать равные максимумы и равные минимумы как пулы ликвидности. Существует также ликвидность линии тренда, а также ликвидность поддержки и сопротивления. Ликвидность - это просто отложенные ордера выше или ниже этих пунктов. </p><p id="e7ce44cc-f738-4d7c-999e-8f84db4ef44e" class="">
+</p><figure id="f290c203-da3d-4724-9acf-163cdb6c41fe" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_10.58.44.png"><img style="width:1678px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_10.58.44.png"/></a></figure><p id="7658a7e7-f322-4b44-ad73-c496395ce993" class="">
+</p><p id="2f9d1754-ff50-40ab-be34-d1631939d493" class="">
+У рынка одна задача - делать прибыль. Он управляет ценой выше или ниже, пока не разгрузят свои позиции. Давайте вернемся к нашему примеру с поездом. Поезда обычно имеют главную станцию в эпицентре оживленного города. Почему? Потому что именно оттуда прибывает наибольшее количество пассажиров. Мы будем использовать главную станцию в качестве нашей метафоры для пула ликвидности. Поскольку станция сейчас пуста, поезд вернется только через некоторое время, когда будут готовы новые пассажиры, желающие сесть в поезд. Теперь поезд может сделать несколько пит-стопов, чтобы разгрузить или загрузить новых пассажиров. Так что да, будут некоторые задержки, но в конечном счете мы знаем нашу следующую остановку - другую главную станцию. Примерно так работает рынок, единственное отличие на самом деле заключается в том, что постоянно строятся новые станции. Наша работа заключается в том, чтобы понимать, где находятся ОСНОВНЫЕ области. 
+</p><p id="c8f6452f-219e-473b-9439-b0fdef872581" class="">Вы должны задавать себе вопросы: Где цена сейчас? Где была цена? Куда цена пойдет дальше?</p><p id="e482c74e-05e2-4076-b0de-afb27e2768b6" class="">
+</p><p id="8e2812eb-461c-4a1e-b4c8-533c23ea7844" class="">Когда мы спрашиваем себя: <strong>“Где цена сейчас?” -</strong> может быть 3 ответа: </p><ul id="0ba425f4-5799-40c7-9fb0-44d947ec1609" class="bulleted-list"><li style="list-style-type:disc">премиум</li></ul><ul id="7315a877-23de-4758-8993-2d1c6d7a2844" class="bulleted-list"><li style="list-style-type:disc">дискаунт</li></ul><ul id="94515918-47b6-4a47-9829-eec52517fee3" class="bulleted-list"><li style="list-style-type:disc">консолидация.</li></ul><p id="da8bcb26-6d83-4cae-bd64-cab7b6d5e9f7" class="">
+</p><p id="5efbbeaa-ecd3-4163-94b9-78d80b1bc533" class="">Когда мы спрашиваем себя: <strong>”Где была цена?”</strong> нужно найти происхождение цены, какая основная точка колебания привела к тому, что цена оказалась на своем текущем уровне. </p><p id="9bf5e383-6105-421f-9cec-5a855d2709c6" class="">
+</p><p id="f36f6079-5730-4927-a563-9f4866d2d4c2" class="">Когда мы спрашиваем себя: <strong>”Куда движется цена?”</strong>:</p><ul id="1501e16f-a34b-449f-b714-ba1efd5b7391" class="bulleted-list"><li style="list-style-type:disc">основная зона ликвидности</li></ul><ul id="68f3f327-52d8-4079-833e-53c2eb15c0e6" class="bulleted-list"><li style="list-style-type:disc">зона спроса и предложения <mark class="highlight-gray">(supply and demand / поддержки и сопротивления)</mark>.</li></ul><p id="50e2dc0a-91f9-461f-b499-4e5751374b4c" class="">
+Ликвидность постоянно создается. Поэтому, когда мы смотрим на ликвидность, мы рассматриваем ее как причину для роста или падения цены. Допустим, у нас есть нисходящий тренд с очевидной линией тренда. Мы можем рассматривать это как причину, по которой цена будет расти, даже несмотря на то, что цена движется вниз. Цене нравится создавать ликвидность, собирать ликвидность и создавать больше ликвидности.</p><p id="223dbb16-4cf1-4db8-bb40-fce02b031e3e" class="">
+</p><figure id="15d729e9-8b2e-4b1d-baf3-d572953a13c7" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_11.41.14.png"><img style="width:1454px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_11.41.14.png"/></a></figure><p id="64fb18ee-cc99-42ef-8eb8-e76d8e3b6962" class="">
+</p><h3 id="7533b0c5-abf0-45c6-bf6e-2dc254c7a459" class="">Swing High / Low</h3><p id="71a2de3e-2208-493f-b586-b6e4278aea39" class=""><strong>Swing High</strong> - это свечной паттерн, который состоит из трех свечей: центральная - самый высокий максимум, прилежащие свечи имеют максимумы ниже. Закрытие третьей свечи должно быть ниже уровня открытия второй.
+<strong>Swing Low </strong>- это свечной паттерн, который состоит из трех свечей, центральная -самый низкий минимум, прилежащие имеют минимумы выше.</p><p id="10254ee8-651e-4c44-8fa2-552c313eb750" class="">
+</p><figure id="7b6f4237-475a-4eca-a2f6-3bdb4e067b29" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_18.29.03.png"><img style="width:1200px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_18.29.03.png"/></a></figure><p id="60bb2457-92f3-459b-8773-cb4763d16d2b" class="">
+</p><p id="ce50ab75-d30c-4a48-a813-e1865019d059" class="">
+</p><h3 id="83ec4acd-65c7-4e39-83cb-e22851dd4212" class=""><strong>Long-term / short-term swings</strong></h3><p id="f21d8dde-7874-426c-be8e-100eff508a3d" class="">Long-term swing highs / lows - сильные или ключевые точки структуры, пробой которых является индикатором смены тренда. Тогда как short-term swing high / lows - это локальный точки структуры , которые могут отвечают лишь за локальную структуру.</p><p id="49f3e341-14cc-4673-b76e-5c981e9647bf" class="">Как отличить сильный максимумы от слабых ?
+Сильные макс. и мин. остаются актуальными точками структуры до того времени, пока цена не обновила одну из них.
+До момента обновления одной из ключевых точек структуры ( Long-term highs / lows), цена может осуществлять локальные <a href="https://www.notion.so/15085198011a46b9aea159d31d34805a"><strong>BoS</strong></a>, создавая микроструктуру внутри.</p><figure id="1a6a6128-3a87-4738-b0ea-3b78b316ac09" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_13.21.38.png"><img style="width:1658px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_13.21.38.png"/></a></figure><p id="ee14951c-13b8-436d-985c-4f23fb156cb3" class="">
+</p><h3 id="6edb497c-0364-477c-8d66-ce2f074c0daa" class="">Structure <mark class="highlight-gray">(Трнед)</mark></h3><p id="e2335421-8200-4379-a3cd-4b57be43beb0" class="">Восходящая или нисходящая.</p><p id="6dfa2c33-2e84-49b5-ad70-53731fb2597e" class="">Структура остаётся восходящей до того момента, пока значимые точки макроструктуры (<strong>Long-term, </strong>красные), не будут пробиты. В то время, как минимумы микроструктуры (<strong>short-term, </strong>синие), могут быть пробиты.</p><figure id="385b0b2e-7173-47aa-8d3f-0bd09bda2d4b" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-22_at_12.33.57.png"><img style="width:1942px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-22_at_12.33.57.png"/></a></figure><p id="3098a408-b410-4fa6-a133-7a163a17799f" class="">
+</p><figure id="f7dd9a61-a789-4ff3-9a84-d39c9bc569bd" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-22_at_12.34.24.png"><img style="width:1792px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-22_at_12.34.24.png"/></a></figure><p id="f631ccfc-5209-4885-9065-d2de05100212" class="">
+</p><h3 id="7e92c8c1-02a0-42c7-b1c2-093256909e52" class="">BoS и SFP <mark class="highlight-gray">(Синонимы SFP: sweep, SH, LG, LH)</mark></h3><p id="310ea389-1285-4b81-ab17-8b33a6a09014" class=""><strong>BoS</strong> - это пробой структуры , полноценное закрепление телом свечи  под/над предыдущим low/high , в сторону противоположную текущей структуре.</p><p id="4cd369e0-ca94-4aa3-be76-760a26e0c560" class="">В условиях нисходящего тренда BoS структуры - это обновление максимума ( формирование HH после последовательности LHs ), ввиду чего структура становится восходящей.</p><p id="afbf5127-3783-46fb-a264-01d4ded5c99d" class="">В условиях восходящего тренда BoS структуры - это обновление минимума ( формирование LH после последовательности HLs ), ввиду</p><p id="4ed97416-39c3-48a1-9a43-742024e87988" class="">Тогда как <strong>SFP</strong> - это снятие ликвидности, без закрепления под/над уровнем low/high, чаще всего фитилем. Для SFP достаточно снятия ликвидности всего-лишь 1 пунктом.</p><figure id="2b8d676f-47f9-4696-b9aa-0c623805f249" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_00.07.37.png"><img style="width:1980px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_00.07.37.png"/></a><figcaption><em>Схематический пример</em></figcaption></figure><figure id="ad305687-569b-4c56-b3df-d9bc0712536f" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_00.03.50.png"><img style="width:2154px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_00.03.50.png"/></a><figcaption><em>Графический пример</em></figcaption></figure><p id="7bb5ed93-3cc0-4780-8e35-75e823b80d73" class="">
+</p><p id="02d71bf0-1e8f-4489-87d9-dc6b4bb8fcd4" class=""><strong>SFP</strong> является признаком слабости и дополнительным подтверждением тренда. После снятия ликвидности - сформированного SFP , происходит разворот в противоположную снятию сторону. Нет ликвидности - нет интереса для большого игрока, следовательно, нет смысла двигать цену в сторону снятия, где она отсутствует. Наличие свипов ликвидности походу движения структуры, указывает на направление потока ордеров большого игрока (Order Flow). Маркет Мейкер снимает лишних трейдеров отрывших позицию в сторону аналогичную с ним.</p><p id="00766f45-d84e-4a4e-b691-2df1c998c5d0" class="">Кроме контекста и направления движения, SFP может быть использован в качестве входа во время манипуляции. А именно, при наличии явного OF , тренда , вход осуществляется во время снятия ликвидности - формирования SFP. Фактором подтверждения для открытия позиции является формирование разворота цены на LTF, под видом сетапов типа StB/BtS.</p><p id="1ebf375f-f9fb-4be0-b2be-fca7671c09fb" class="">
+</p><h3 id="18055f44-a4ed-45f7-9e0d-d3e0f0277dd9" class="">Order Flow</h3><p id="37b887ab-9d9c-43a8-910e-4a51f9463be3" class="">Мы хотим открывать позицию вместе с большими деньгами , а они склонны к манипуляциям, которые проявляются в виде снятий ликвидности -  SFP. Именно поэтому работа внутри OF  обеспечивает минимальный риск при открытии позиции в аналогичную с ним сторону.</p><figure id="47bebaf9-76d3-406a-a32e-19bcb0b3e208" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-26_at_08.44.55.png"><img style="width:1142px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-26_at_08.44.55.png"/></a></figure><p id="e7d26a64-5b20-4b6b-aff7-51d3516634b5" class="">
+</p><p id="7cdcfa8f-5626-4da5-9728-57dd0de3d239" class="">
+</p><h3 id="bfbb8f44-e57a-4b2e-b7c7-1d300820f569" class=""><strong>Sell to Buy </strong>/<strong> Buy to Sell </strong></h3><p id="23958749-0f2e-471f-b0ad-bb7f6811a46f" class=""><strong>StB, BtS - Это последние движение, которое сняло ликвидность. </strong></p><p id="ed5e71cb-6004-4321-bf3c-148b4759597f" class="">
+</p><p id="e5b56739-44dd-4d56-b928-1c39686411c3" class=""><strong>StB -</strong> Отмечается от High к Low.</p><p id="fe609329-a37f-46cf-a11f-bfdef219e27b" class=""><strong>BtS -</strong> Отмечается от Low к High;</p><p id="0177ff5e-01e9-45ec-8789-8cbdda0db9a3" class="">Необходимые факторы для валидности:</p><ol type="1" id="e04c5d78-698f-498e-80b2-ebd23fcd9cae" class="numbered-list" start="1"><li>Снятие ликвидности</li></ol><ol type="1" id="41268b72-d89b-43ad-898d-0d65bc41ddce" class="numbered-list" start="2"><li>Обновление структуры - <a href="https://www.notion.so/15085198011a46b9aea159d31d34805a">BoS</a></li></ol><ol type="1" id="dc895e6c-db2a-4c89-b7e3-57182aabcc7c" class="numbered-list" start="3"><li>Откат в зону StB ( зона StB - это последнее движение, которое сняло ликвидность. Отмечается от High к Low )</li></ol><ol type="1" id="24247e77-13fc-4bca-b917-75542473ce01" class="numbered-list" start="4"><li>Открытие позиции от всей зоны StB. Ордер на покупку выставляется на уровне обновление максимума ( уровне <strong><a href="https://www.notion.so/15085198011a46b9aea159d31d34805a">BoS</a></strong> ), SL должен быть размещен под уровнем минимума снимавшего ликвидность.</li></ol><p id="bff47a1b-a649-4c95-b269-338b2293c250" class="">
+</p><h3 id="a688c896-1797-4ae9-af1d-e99a6eb05709" class="">Premium &amp; Discount</h3><p id="60c3db57-d447-4d69-864c-c7288723818e" class="">Всегда нужно определять <strong>range</strong>. Когда я говорю <strong>range</strong>, это может значит: </p><ol type="1" id="622e30ee-d2f6-4af8-ac5b-49d19d9d2b43" class="numbered-list" start="1"><li>Предыдущий максимум консолидации к предыдущему минимуму консолидации может создать торговый диапазон. </li></ol><ol type="1" id="0e213a85-69cc-4a02-9ab7-d5a1b6a393dc" class="numbered-list" start="2"><li>Предыдущий минимум консолидации к предыдущему максимум консолидации.</li></ol><p id="c8350612-ee89-4f20-8885-4ba9f3ef1634" class="">Менее рискованно открывать позицию на границе диапазона. В идеале входить в позицию выше или ниже диапазона в зависимости от ликвидности. В премиуме ищем продажи, а в дискаунте - покупки.</p><p id="76d0afa6-4d0d-47ac-b237-0d12491d7d80" class="">
+</p><figure id="ec291665-3586-4bda-85e0-0dc50e0d5e04" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_11.55.06.png"><img style="width:1562px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_11.55.06.png"/></a></figure><p id="1fb3e92e-aa38-45e0-ac71-c2a827581e0e" class="">
+Помните, что мы всегда держим в уме общее направление движения цены (тренда). Это всегда должно быть у тебя в подсознании. Не волнуйся, со временем это станет легче.</p><p id="3e992b3d-1162-496c-9351-cfdab5645402" class="">
+</p><h3 id="e71ed243-f1b6-4cb6-95cd-14b9a5d82534" class="">AMD <mark class="highlight-gray">(РОЗ - Power Of Three)</mark></h3><p id="8f6b9d44-9d16-4648-ac7a-b8ce083065d3" class="">Поочередные стадии поведения цены, а именно: </p><ol type="1" id="d7227a7e-a1fb-448c-ae6b-b34a69b017e1" class="numbered-list" start="1"><li>Аккумуляция</li></ol><ol type="1" id="c7e04d96-f4c2-44b5-986b-e6a7b9c762a2" class="numbered-list" start="2"><li>Манипуляция</li></ol><ol type="1" id="cbd8d850-4786-409b-a89a-f23289cbbc7d" class="numbered-list" start="3"><li>Дистрибуция</li></ol><p id="2a92ffaf-0503-47af-94e7-a9a1bafb4a1e" class="">
+</p><p id="67412172-31d7-4e64-ad8a-5b38dfd052e7" class=""><strong>Аккумуляция</strong>.</p><p id="abd3e7d4-ea74-4358-b162-4bc0840e1bd4" class="">Чаще всего представлена в виде узкого коридора (ренджа), в котором формируется ликвидность по обе стороны торгуемого диапазона. Целью аккумуляции является накопление большого количества ликвидности.</p><p id="67846333-a28b-4159-b218-cb912ceaf4fc" class="">
+</p><p id="bf75e75b-d801-4fd4-901b-6cb90d285565" class=""><strong>Манипуляция</strong>.
+Под манипуляцией подразумевается затягивание цены в противоположную истинному движению сторону с целью снятия ликвидности и создания условий для открытия позиций ритейл трейдерами, торгующим пробой.</p><p id="25f99650-3d7f-4672-86b8-420227003aaf" class="">
+</p><p id="db53f6b1-4313-4443-89d9-5ea999789be9" class=""><strong>Дистрибуция</strong>.
+Истинное движение происходит после того, как ликвидность была собрана и ритейл, торгующий «на пробой уровня сопротивления», а также являющийся верхней границей рейнджа, - вошли в позицию.</p><p id="8a984108-cc5a-49a1-8c27-ab1d7aa7ee1b" class="">
+</p><figure id="3c696fd9-651e-4bee-8467-ac3eccb3a5a2" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_16.27.55.png"><img style="width:2150px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_16.27.55.png"/></a></figure><p id="1b2312a7-e3a9-47c7-9454-73b30bebe73d" class=""><strong>Как использовать?</strong>
+Важно понимать структуру HTF. Чаще всего, манипуляция случается против структуры старшего таймфрейма, тогда как дистрибуция находится в синхроне со старшим ТФ.
+Наша зона интереса - это манипуляция. Внутри неё мы рассматриваем открытие позиции. Так как манипуляция является той же девиацией с точки зрения того, что аккумуляция -это рендж, то правила работы с манипуляцией аналогичны правилам открытию позицию в контексте девиации.
+А именно, внутри девиации для открытия позиции необходимо подтверждение на младшем таймфрейме - разворот цены (BoS структуры, дивергенция, дистрибуция Вайкофа и тд.).
+На примере подтверждением разворота будет BoS структуры (цена обновила минимум, тренд изменился с восходящего на нисходящий).</p><p id="8d8a5bd6-7ae3-441a-92e4-51b85709acb9" class="">
+</p><h3 id="c802d0d2-ea1a-407b-a3fb-072e643abbb4" class="">Imbalance / <strong>Fair Value Gap</strong> <mark class="highlight-gray">(IМВ / FVG)</mark></h3><p id="c133854b-d35d-4fe9-9f8a-1add720c0141" class="">Это дисбаланс в виде незаполненных ордеров, который в будущем должен быть перекрыт ценой исходя из большого объёма в FVG только одной из сторон (шортовой/лонговой) и очень маленьким или полным отсутствием противоположного объёма.</p><figure id="f28ee7f1-704b-45d4-9f09-68397dd2f5a6" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_16.52.08.png"><img style="width:2146px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_16.52.08.png"/></a></figure><p id="0c8dcb73-de79-4992-b939-a9489e76b4c5" class="">Открывать позицию можно на отскок после заполнения половины имбаланса или полного заполнения<strong>. </strong></p><p id="6933a033-332d-473f-a32e-a2ce6f07c38a" class="">
+</p><h3 id="c25dbe59-cf3f-4f0f-9bd7-77766c16eda4" class="">Block <mark class="highlight-gray">(Ордерблок)</mark></h3><ul id="c47f6adc-9661-431b-8c97-da160637a6c6" class="bulleted-list"><li style="list-style-type:disc"><strong>Что вынесли?</strong></li></ul><ul id="ef710aec-884f-4d6b-9e8e-6167d913b941" class="bulleted-list"><li style="list-style-type:disc"><strong>Чем вынесли?</strong></li></ul><ul id="4f2845a2-63c4-4dc5-9bfb-264957dd29c6" class="bulleted-list"><li style="list-style-type:disc"><strong>Как рисовать?</strong><ul id="d8d09dc3-c57d-4488-8a24-d3573aa27d55" class="bulleted-list"><li style="list-style-type:circle">3я свеча выходит за 2, то рисуем блок по 1 свече.</li></ul><ul id="9ac12c01-f66b-4c85-a6d9-fe3dd64b960a" class="bulleted-list"><li style="list-style-type:circle">3я свеча не выходит за 2  <em>(инсайдбар)</em> , то рисуем блок по 2й свече.</li></ul></li></ul><p id="2ef9af0f-c03b-4755-ac35-1ae94f0fdc3f" class="">Если на ретесте блока на 1м рисуется еще один блок. Учитываем ликвидность, FVG и все остальное.</p><figure id="2f73f70b-ef04-4e21-945e-f20a1d6306f0" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_17.59.59.png"><img style="width:1656px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_17.59.59.png"/></a></figure><ul id="cf933278-8d49-4f23-8d9c-987d582ae1fa" class="bulleted-list"><li style="list-style-type:disc">Блок валиден для повторного теста, если первичное касание было через микро-тест.</li></ul><ul id="4c509d9d-c187-4903-91cc-88a70962e2af" class="bulleted-list"><li style="list-style-type:disc">Блок валиден для повторного теста, если работа идет с старшим периодом и цена совершает свип внутри него. </li></ul><ul id="d6611b95-b6fc-4a80-99a4-66ad2b5e4de5" class="bulleted-list"><li style="list-style-type:disc">Блок валиден для повторного теста, если рядом с ним был сформирован пул ликвидности</li></ul><p id="c2cd9689-3d6d-4745-873a-b1c22a8b0077" class="">
+</p><h3 id="e4262aa4-f143-47d6-8eb0-8bbdb8be0ff1" class=""><strong>Mitigation Block</strong></h3><p id="b008b581-bc80-48de-9d7b-2e654374e942" class="">После пробоя мы ожидаем, что цена
+откатится и смягчит Mitigation зону, прежде чем снова продолжить
+движение.</p><p id="dc4117bf-d60e-4cca-bf61-03a95965dc6f" class="">смягчения не случилось, вполне вероятно, что
+максимум / минимум, который не удалось смягчить, превратится в ликвидность.</p><figure id="789bbfac-bfa5-45f6-bfef-8480a9c577d8" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_18.15.50.png"><img style="width:1792px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_18.15.50.png"/></a></figure><p id="8b4012ca-577b-43bc-ab09-7428e0896f7f" class=""> </p><h3 id="be02dcd8-da84-4d2a-8b45-410b683ec662" class="">POI (Point of interests)</h3><p id="740b6575-8d74-47d4-b33a-24a85e107863" class="">Зона интереса</p><ul id="a018e01b-44d2-49ae-aa37-77da7f4e3780" class="bulleted-list"><li style="list-style-type:disc">ОБ, брейкеры, митигейшены</li></ul><ul id="45730e19-2b52-4372-af21-e95d388f6014" class="bulleted-list"><li style="list-style-type:disc">FVG</li></ul><ul id="4179121d-3130-4895-b946-ec48dae1a8d9" class="bulleted-list"><li style="list-style-type:disc">StB/BtS</li></ul><ul id="b027b9d9-4aeb-47f2-8b80-361e4bd7e788" class="bulleted-list"><li style="list-style-type:disc">Сбор ликвидности</li></ul><p id="cdd1c185-0b80-4915-a83c-0924edc87371" class="">Определи ликвидность на стороне покупки или продажи или FVG на HTF, дождись, пока цена достигнет этой зоны, и ищите модели входа в LTF</p><p id="ad18aeb7-0e34-4363-8759-f7669dadaf49" class="">
+</p><figure id="791e52f2-1a6f-44fc-830c-2769e7f3ce7b" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_17.45.45.png"><img style="width:1344px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_17.45.45.png"/></a></figure><p id="c420b0de-6886-4bda-80f7-4d7254d51e4f" class=""><strong>EQH/EQL</strong> - равные максимумы/минимумы.</p><p id="0f856f49-8721-44c6-a5ab-3f640adf5a09" class="">Исходя из классического анализа , он является разворотным и подразумевает открытие позиции в противоположную сторону после его формирования. Мы же расцениваем EQL/EQH как скопление ордеров ритейл трейдеров. Для нас он играет роль магнита для цены , так как цена ходит от одного пула ликвидности к другому.</p><p id="fc2aacee-5111-4f64-943f-8cc081573aa2" class=""><strong>SMR</strong> - Разворотный паттерн.</p><figure id="f6d819d3-c938-431e-bc02-86b720943faf" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_17.49.37.png"><img style="width:720px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_17.49.37.png"/></a></figure><p id="0dfa5f1d-7c4f-4745-a513-6a377c7b2b67" class="">
+</p><h3 id="8e35bb42-5420-49be-91ba-60381224c627" class="">Схема работы</h3><p id="457a6004-d904-4787-8880-bba02ef2fb15" class=""><strong>Типы сделок:</strong></p><ul id="2c18c70c-c35c-4984-a4dd-ae6ad0fdbd40" class="bulleted-list"><li style="list-style-type:disc">Reversal - сделки на разворот.</li></ul><ul id="0df160e9-0ff6-48ea-9162-62168834004c" class="bulleted-list"><li style="list-style-type:disc">Continuation - сделки по тренду. </li></ul><p id="e189659d-8fff-447a-af53-6f510e34c57a" class=""><strong>ТФ для работы: </strong></p><ul id="238f95ba-cee1-428b-b6d2-31a44a26ed53" class="bulleted-list"><li style="list-style-type:disc">Daily &gt; M15</li></ul><ul id="e2af7309-58cc-4d82-9a8d-27a98611d224" class="bulleted-list"><li style="list-style-type:disc">H4 &gt; M5/3</li></ul><ul id="b9c538d0-95a7-43aa-9e58-7359596577a7" class="bulleted-list"><li style="list-style-type:disc">H1 &gt; M3/1</li></ul><p id="eacade88-6277-49fb-9af9-cc7e29fe4c6d" class=""><strong>Комбинации</strong></p><ul id="3d45fcf1-f9c2-4ad6-9cfe-6489f0cf341e" class="bulleted-list"><li style="list-style-type:disc">HTF FVG + LTF разворот</li></ul><ul id="b6ecb118-9fdd-4d14-ab02-b4c6baf61bdc" class="bulleted-list"><li style="list-style-type:disc">HTF Liq + LTF разворот</li></ul><ul id="714180fc-f2ef-4ceb-a323-56aca71e4567" class="bulleted-list"><li style="list-style-type:disc">HTF Liq + FVG  + LTF разворот</li></ul><p id="f954d688-e24b-4566-ac64-f52fcec568cd" class=""><strong>Анализируем:</strong></p><ul id="adbf129e-6205-440c-85ca-8b605d714f93" class="bulleted-list"><li style="list-style-type:disc"><strong>Raids</strong> - первым делом берутся во внимания снятия swing’и от H1, так как свип чаще всего приводит к смене структуры, хотя бы на LTF, что открывает много возможностей для LTF 3R.</li></ul><ul id="ff49a151-e985-4602-906f-ecb4ec5e22f7" class="bulleted-list"><li style="list-style-type:disc"><strong>Structure </strong>- определяем направление и основные позиции на ближайшее время, так как 4h может затягиваться до 3-5 дней. LTF, в особенности H1, - определяет интрадей позиции. </li></ul><ul id="e12f101f-6ee2-4492-85c3-4d0f44719607" class="bulleted-list"><li style="list-style-type:disc"><strong>Price environment </strong>- нахождение цены относительно Premium/Discount, Imbalance, Liquidity pools.</li></ul><ul id="5817568e-49a3-4ab0-822e-07544af9fad4" class="bulleted-list"><li style="list-style-type:disc"><strong>POI</strong> - StB, BtS, Блоки, FVG, Liquidity.</li></ul><ul id="2220364c-5575-4b03-8712-146b8b225da8" class="bulleted-list"><li style="list-style-type:disc"><strong>Торговый план</strong> с различными вариантами развития событий.</li></ul><p id="b27430b7-0f83-404a-9fd6-8618527c7058" class="">
+</p><p id="8d446d23-bbb2-4916-8774-a261b0376b1a" class="">Ищем на HTF какой-нибудь <a href="https://www.notion.so/15085198011a46b9aea159d31d34805a">POI</a>, отмечаем эту зону и ждем когда цена туда придет.</p><p id="744095e8-354d-45f5-96c6-95f0b874a24c" class="">Когда цента туда приходит идем на LTF и ищем разворотный паттерн или заходим от блока или FVG по тренду! </p><p id="3f920569-bdbd-4669-a8a3-a9c5ba06e3d3" class="">У митигейшнена все просто, как на картинке и тоже по тренду!</p><p id="4e4ab0ad-583d-4281-9376-3b50fb34bbea" class="">Не забываем про BoS, что он должен сломать long-term!</p><p id="3a4d3210-c5d9-4573-b0ba-4bce64929ef3" class="">
+Цена преобразуется в BSL или SSL диапазон, в котором срабатывают стоп-ордера. Эти ордера обеспечивают ликвидность для входа/выхода из крупных позиций без значительного проскальзывания. Как только ликвидность исчерпана, цена формирует разворотный паттерн. обычно разворот происходит в двух формах, таких как Liquidity Raid или SFP.</p><p id="def9d55a-521c-4ec1-87c8-6f8855204a40" class="">
+</p><p id="f2a08b18-fa8e-4873-82e9-fe43395b714d" class=""><strong>Пример:</strong> </p><p id="4a1fb2f9-c3b2-4f2c-8f76-60a42b8bfe1b" class="">Заполнение HTF FVG и рейд на покупку, теперь мы спускаемся к LTF (M5-M1) и ищем модель разворота для подтверждения (SMR) для входа в сделку.</p><p id="96992110-d7d9-4157-84fe-3586a060fca4" class="">На LTF теперь у нас есть Liq grab, заполняющий HTF FVG, за которым следует разрыв структуры с FVG и IDM ниже FVG, хороший стек для входа.</p><p id="8621eb9d-dcf7-4278-b37c-b5ac4d11d546" class="">
+</p><div id="b8436e9b-5875-4467-90df-954321cfc8dd" class="column-list"><div id="cc776f5a-5cbb-4800-9f53-546b47ac5395" style="width:18.75%" class="column"><figure id="b392777a-155f-497c-8eb2-2a51eefe45a1" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_19.20.17.png"><img style="width:144px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_19.20.17.png"/></a><figcaption>H4</figcaption></figure></div><div id="d9d183d6-8dd8-467c-ab1a-15cf86e38a85" style="width:81.25%" class="column"><figure id="68fbd8fc-46a7-4e35-a0bb-3f8e58bc98c9" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_19.20.33.png"><img style="width:480px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Screenshot_2022-07-25_at_19.20.33.png"/></a><figcaption>M2</figcaption></figure></div></div><p id="0879b341-afe8-4b26-b249-bb7453873f83" class="">
+</p><h3 id="48228130-7703-4c0b-a002-47f2875a1d1a" class="">Ошибки</h3><p id="8d8982f7-57c2-437a-b2fc-4562481fb9da" class="">Вход без HTF снятия ликвидности.<div class="indented"><figure id="b30c1212-4e80-4fe1-aecd-58f1abfc94c4" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled.png"><img style="width:240px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled.png"/></a></figure></div></p><p id="6b17bc3a-de5b-4d8b-83c7-f57706f40c26" class="">Сделка против Order Flow<div class="indented"><figure id="dc77aeac-d9cf-4dde-9a11-a1fb9b796e53" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/dh4pYxuG.png"><img style="width:240px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/dh4pYxuG.png"/></a></figure></div></p><p id="f1de7d27-32b0-4b6f-9c77-c93e370e229a" class="">POI без снятия ликвидности.<div class="indented"><figure id="37b56aac-5725-4af4-a0a3-71ae6febfa3c" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%201.png"><img style="width:240px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%201.png"/></a></figure></div></p><p id="5b864365-82f0-449f-abd9-e1c0db0f79ad" class="">Сделка против HTF снятия ликвидности (последнего свипа).<div class="indented"><figure id="7b81fe5d-8523-4e2e-931b-c38c33656bb4" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%202.png"><img style="width:240px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%202.png"/></a></figure></div></p><p id="daf89be1-db9f-4c65-a6eb-8b61ee929d5c" class="">Не премиум для шортов/Не дискаунт для лонгов.<div class="indented"><figure id="6b6a14e3-2a3b-43b7-bdda-62ea7f1d366c" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%203.png"><img style="width:240px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%203.png"/></a></figure></div></p><p id="158ed88d-4613-463d-a513-db02df17e5f1" class="">Откат для перекрытия Imbalance и продолжение движения.<div class="indented"><figure id="9d465b03-47d4-4b31-8c47-98e7ae2801c2" class="image"><a href="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%204.png"><img style="width:240px" src="Smart%20Money%20Mastering%20cc9ea444eca4480db62859655acab222/Untitled%204.png"/></a></figure></div></p><p id="77dea8e3-db58-4e25-b4b9-7ff9595255a8" class="">
+</p><h3 id="c7447aea-1723-4991-b826-2f97bdf0c483" class="">Терминология </h3><p id="a8dcea29-f678-4887-91b1-c5b0671590e5" class=""><strong>SMC</strong> - Smart Money Concepts.</p><p id="3ffdefe1-2192-45cd-890d-25cb4271a643" class=""><strong>PA</strong> - Price action.</p><p id="8c0b3550-cb50-4317-831f-0f9953b5bea0" class=""><strong>MS</strong> - Market structure.</p><p id="56011f70-f445-4c84-84c0-a91f61d6b4bd" class=""><strong>H</strong> - High.</p><p id="66f0d1db-a7d4-4736-b9f4-966a48fe58f9" class=""><strong>L</strong> - Low.</p><p id="3db2c764-0d97-48ca-88df-4f13423e3b0d" class=""><strong>HH</strong> - Higher high.</p><p id="da92fe08-3d6b-48ef-bb6e-a40e4cb363e3" class=""><strong>HL</strong> - Higher low.</p><p id="172b418a-eb25-4e9b-9a5e-cf0399b0e93d" class=""><strong>LH</strong>- Lower high.</p><p id="03b7a1fe-d984-431e-8317-935acd4e3050" class=""><strong>LL</strong> - Lower low.</p><p id="7a03e269-5d15-4de7-a7ae-64c45a255bae" class=""><strong>TF</strong> - Time frame.</p><p id="dc0e61a7-f8b2-4218-8ccf-c7ed4d23642e" class=""><strong>HTF</strong> - Higher time frame , страший тайм фрейм.</p><p id="68051b92-da37-4199-b728-68b406dea602" class=""><strong>LTF</strong> - Lower time frame , младший тайм фрейм.</p><p id="94707ad4-3683-436a-87be-e5791afd9021" class=""><strong>BOS</strong> - Break of structure, слом структуры. <mark class="highlight-gray">(Cиноним: BMS - break in market structure, MSB,  ChoCh)</mark>.</p><p id="949fdde5-3396-4e26-b304-e1117b338368" class=""><strong>SFP</strong> - Swing failure pattern, снятие ликвидности. <mark class="highlight-gray">(Синонимы: sweep, SH - stop hunt , LH - liquidity)</mark>.</p><p id="06d0b06f-73e1-4f10-a6f3-4103a4870c73" class=""><strong>SMS</strong> - Shift in market structure.</p><p id="c913498a-ccd4-4703-8030-66d30b712772" class=""><strong>SMR</strong> - Smart money reversal. <mark class="highlight-gray">(паттерн разворота)</mark></p><p id="705345e2-ce71-4d5b-83e4-bd8033a979bc" class=""><strong>POB</strong> - Point of breakout.</p><p id="2a83d16b-96ae-4700-aaad-4bdfab2ffe4b" class=""><strong>OF</strong> - Order flow.</p><p id="2be639e4-bc31-444e-906c-04805ae303ef" class=""><strong>POI</strong> - Point of interest, зона интереса. <mark class="highlight-gray">(зона, в которой ожидается разворот, открытие позиции)</mark></p><p id="8577e223-f2ea-4e29-8f39-29d30bb614f1" class=""><strong>Inducement</strong> - Формирование ликвидности. Во многих зарубежных источниках используют, как что-то авторское. Обычное формирование ликвидности перед вашей POI.</p><p id="4110dee3-6c39-41c1-928b-1cd5762158dc" class=""><strong>Decision point</strong> - POB, промежуточный ордерблок в предыдущей структуре, который чаще выступает, как FTA для вашей позиции, или потенциальная POI при наличии подтверждения локальной смены структуры.</p><p id="f6c61145-990e-4423-b708-26f3b4768b4a" class=""><strong>FTA</strong> - First trouble area. <mark class="highlight-gray">(потенциальная зона разворота против тренда).</mark></p><p id="fb214f58-f978-49d5-b5d0-06ca61cb5d9b" class=""><strong>OB</strong> - Order block.</p><p id="efa86e55-76c1-42e5-8d06-18f7d0e04476" class=""><strong>BB</strong> - Breaker block.</p><p id="0c28d1b1-29f3-47dc-a1e1-29843969fe40" class=""><strong>MB</strong> - Mitigation block.</p><p id="c6b197e1-096a-4528-8c4c-f168876c9313" class=""><strong>SC</strong> - Sponsored candle. <mark class="highlight-gray">(OB , который снимает ликвидность).</mark></p><p id="ab86ee89-2394-4fd0-9f3f-ef2cf38b5ad5" class=""><strong>StB</strong> - Sell to buy.</p><p id="34d2852c-ed89-41d1-a031-f9248a118ce3" class=""><strong>BtS</strong> - Buy to sell.</p><p id="f9fb61aa-1ebd-49c6-b171-43100bf64058" class=""><strong>BSL</strong> - Buy Side liquidity.</p><p id="242b4e37-2dcf-4e48-bb55-e05124f4ef72" class=""><strong>SSL</strong> - Sell Side liquidity.</p><p id="1359a422-a96a-40b9-9807-72b8e465af2a" class=""><strong>IMB</strong> - Imbalance <mark class="highlight-gray"> (Синонимы: FVG (fair value gap), inefficiency) </mark></p><p id="af8f010f-6d8a-41fb-bca4-5652aa0ca067" class=""><strong>EQ </strong>- Equilibrium.</p><p id="97d2742e-4593-4630-9155-ba6f073b1a2b" class=""><strong>AMD</strong> - Accumulation, manipulation, distribution. <mark class="highlight-gray">(Синоним: PO3)</mark>.</p><p id="41b2ce61-8228-495b-a609-31972cb9c8d9" class=""><strong>OTE</strong> - Optimal trade entry. <mark class="highlight-gray">(зона коррекции Фибоначчи с наибольшей вероятностью разворота - 0.618-0.786)</mark>.</p><p id="ea123684-1db3-4c73-af09-193dd954f3aa" class=""><strong>LG</strong> - Liquidity grab.</p><p id="baf753fe-2aab-4a72-b46e-60492e809092" class=""><strong>EQH</strong>, <strong>EQL</strong> - Equal highs, equal lows.</p><p id="b6727b88-2e84-4aac-b96f-8e85f08f78d5" class=""><strong>SND</strong> - Supply &amp; demand, зоны поддержки и сопротивления.</p><p id="ad02346b-3c62-4237-95f6-af4561b2e45c" class=""><strong>LOE</strong> - Law of effort. Закон силы или моментум.</p><p id="c99ebe29-f09a-4909-9841-34843ff31546" class=""><strong>Confirmation</strong> - Подтверждение. <mark class="highlight-gray">(подтверждение - разворот цены внутри POI или после снятия ликвидности)</mark>.</p><p id="3a24de91-bd20-4abb-ad09-84df4cb32df6" class=""><strong>SL</strong> - Stop loss. </p><p id="0652e303-9af4-477b-82d8-5135d50e55a9" class=""><strong>TP</strong> - Take profit.</p><p id="88d309ab-5f17-4387-b125-256af1d1646f" class=""><strong>RM</strong> - Risk management.</p><p id="d8516673-1480-4829-85e9-2ebc083b4034" class=""><strong>RR</strong> - Risk reward.</p><p id="bb971927-8eb1-4915-b0b9-22ba2fde5049" class=""><strong>PDL</strong> - Previous daily low.</p><p id="8182271c-f847-4c30-98fd-1f078b1733b0" class=""><strong>PDH</strong> - Previous daily  high.</p><p id="1b1ea9c9-a279-4ee5-9dca-1aea8854c0df" class=""><strong>PWL</strong> - Previous weekly low.</p><p id="d77c9688-3867-42f4-8632-a7b5964c205a" class=""><strong>PWH</strong> - Previous weekly high.</p><p id="401d6163-8654-44db-bd05-074cccf04c01" class=""><strong>PML</strong> - Previous monthly low .</p><p id="b5744ce9-5ada-47c7-ba74-8cf603e3da7c" class=""><strong>PMH</strong> - Previous monthly high.</p><p id="a5743087-5030-46af-b214-ce0813745ecf" class=""><strong>DO</strong> - Daily open.</p><p id="f6b12df6-e4c6-4688-81a1-8bf828d44e3c" class=""><strong>WO</strong> - Weekly open.</p><p id="f228c614-fef3-4f67-8af7-492c607a4823" class=""><strong>MO</strong> - Monthly open.</p><p id="141871ac-6d92-45b0-9739-a63f32600bcc" class=""><strong>YO</strong> - Yearly open.</p><p id="02ed2576-e0fb-4b80-b70d-c816c0a514f9" class="">
+</p><p id="55d817dc-af4e-4bf3-87d6-1b4fc79ce41b" class="">
+</p><p id="9b89f526-9367-43e5-8774-88542ac246e5" class="">
+</p><h3 id="971b962f-3bfe-4f70-a8c2-1571bbb4a64b" class="">Дополнительные материалы</h3><figure id="a5cece33-39bd-458b-9974-5e86fe4b8bc0" class="link-to-page"><a href="../Library%20a5cece3339bd458b99745e86fe4b8bc0.html"><img class="icon" src="Book_solid.png"/>Library</a></figure><p id="0e2184be-d0a9-4232-8d75-32eb99e64cba" class="">Лекции, бектесты, инструменты, анализы проектов, другие гайды и туториалы.</p><p id="0a2f08c0-6b07-4f34-b323-170aed459d98" class=""><strong><a href="https://t.me/imbalanceFighter">Пишите сюда</a></strong></p><p id="b2d4bc42-0fa3-4d55-b76f-16565447d9d6" class="">
+</p></div></article></body></html>

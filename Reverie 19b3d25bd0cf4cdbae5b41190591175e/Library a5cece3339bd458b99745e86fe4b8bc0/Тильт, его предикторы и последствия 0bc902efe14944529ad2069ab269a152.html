@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Тильт, его предикторы и последствия</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0bc902ef-e149-4452-9ad2-069ab269a152" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="%D0%A2%D0%B8%D0%BB%D1%8C%D1%82,%20%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D1%82%D0%BE%D1%80%D1%8B%20%D0%B8%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F%200bc902efe14944529ad2069ab269a152/sticker_solid.png"/></div><h1 class="page-title">Тильт, его предикторы и последствия</h1></header><div class="page-body"><p id="f96cb617-e5eb-4059-be13-fba8c09f44c0" class="">
+</p><p id="5904f5b5-d3fc-4868-9fb0-1acd1aa68960" class="">Тильт в трейдинге — это состояние, при котором в результате нескольких подряд неудач происходит потеря контроля над эмоциями и отстранение от торговой системы. Мы будем рассматривать тильт не как изолированное состояние, а как определенный
+континуум. Это что-то вроде шкалы от 0 до 10, где 10 — развернутая картина тильта, а 0 — небольшие изменения в эмоциональном состоянии.</p><p id="9635c82c-272a-4da9-b6ae-dc4642c93d57" class="">
+</p><h3 id="d53264fb-7f95-40d0-95c3-cdfe10eee214" class="">Дофамин</h3><p id="f4ad61ac-d806-4a74-81b5-ec2211e38d89" class="">Представьте ситуацию, при которой вам сулит выигрыш. В мозг поступает информация (любой стимул, воспринимаемый внешними анализаторами: слух, зрение
+и т. д.) и попадает в структуру под названием таламус, затем поступает в кору полушарий для обработки.
+Таламус стимулирует черную субстанцию и зону VTA, что приводит к выработке дофамина.</p><p id="673d25e3-1f16-468f-9949-7561d2715ca8" class="">
+</p><p id="a6c8a782-5f96-4027-848d-63376e12dbe8" class=""><strong>VTA </strong>— область в стволе мозга, в которой находятся дофаминовые нейроны. Отростки этих нейронов расходятся по всей ЦНС. Активируются они при предвкушении выигрыша для создания мотивации и соответствующего поведения путем воздействия на
+фронтальную кору через центр удовольствия (прилежащее ядро).</p><p id="c9fe9095-60a9-46ef-9c36-dca28e386e4c" class="">
+</p><p id="adc56910-2f7f-4a34-ab3e-69194824de1e" class="">Трейдинг как стимул (особенно, если это занятие само по себе приносит удовольствие) повышает активность VTA, и ваша мотивация возрастает. В дальнейшем, если
+вы не получаете вознаграждение (вознаграждением может быть открытие позиции, закрытие ее в плюс или даже в минус), это приводит к резкому снижению
+активности дофаминовых нейронов и потере мотивации.</p><p id="e57423af-9927-4e18-bb06-2e88226d077a" class="">У людей активность дофаминовых нейронов VTA разная. Если их активность повышена, то вы будете более склонны цепляется за ситуации, которые потенциально могут привести к вознаграждению, как бы перескакивая между задачами и не всегда доводя их до финала. Вы начинаете гнаться за результатом, игнорируя сам путь (например, закрываете позицию
+слишком рано или открываете ее без подтверждения в ожидании быстрой сделки). Мозг перенасыщается дофамином, но положительный исход (вознаграждение) так и не приходит, что ведет к запуску паттернов необдуманного поведения в коре полушарий, которые направлены только на вознаграждение. Это и есть тильт.</p><p id="548533cd-c7d8-47cb-b047-470e50ae1423" class="">
+</p><p id="84c79cce-3ddb-4946-b073-b51a658893cd" class=""><strong>Черная субстанция </strong>— область в стволе мозга, которая, как и VTA содержит дофаминовые
+нейроны. Отличие заключается в том, что из черной субстанции отростки дофаминовых нейронов идут по нигростриарному пути в полосатое тело (стриатум). Далее через стриатум (интернейрон) дофамин воздействует на экстрапирамидную систему, которая отвечает за нормальную двигательную активность, которая пока нас не интересует. Мы поговорим про влияние стриатума на кору полушарий.</p><p id="7be7e4c0-b567-4257-b0a8-0a7c1fefe118" class="">
+</p><p id="87528098-e361-49ec-8b82-41e3348213bc" class="">При повышении активности дофаминовых нейронов в черной субстанции воздействие на стриатум, соответственно, также усиливается. Поговорим об этом конкретнее.</p><p id="1f778bf5-915b-4f47-832d-d795b52ed022" class="">Активность дофаминовых нейронов у людей разная. К тильту будут склонны люди с повышенным уровнем дофамина. Представим, что существует определенный стимул, например, зрительный (видите информацию на графике). Этот стимул обрабатывается в структуре под названием таламус и по таламо-кортикальному пути поступает в кору полушарий, где формируется ответная поведенческая реакция. Стриатум регулирует переход информации между таламусом и корой посредством механизма так называемого гейтинга. Если уровень дофамина в стриатуме повышен, порог запуска процесса перехода информации между таламусом и корой снижается, что способствует уменьшению фильтрации информации. Это приводит к ошибочным суждениям и запуску условно неконтролируемых поведенческих ответов. Простыми словами, повышение
+дофамина в стриатуме — это запуск несвоевременных и преждевременных поведенческих реакций, которые впоследствии приводят к тильту.</p><h3 id="5adf4a2b-90c1-4055-acaf-f54172e051fd" class="">Как стабилизировать
+уровень дофамина?</h3><p id="2380f7dd-f75c-4317-b7fa-960ddc321655" class="">Повторюсь, что дофамин — это нейромедиатор, принимающий участие в системе вознаграждения в виде усилителя мотивации. Желание выпить кофе, покурить,
+съесть пирожное — все это вознаграждения, к которым вас за руку ведет дофамин. Суть стабилизации заключается в так называемом дофаминовом голодании.</p><p id="4d6afb47-fbe8-4cf4-9adf-d84d3e5eec40" class="">Другими словами, в отказе от бесполезных стимулов, например:</p><p id="e7d9e670-677a-4800-ba93-a24afd6fcf49" class="">Кофе, газировка, курение, алкоголь, психостимуляторы, просмотр ютуба и скроллинг соцсетей, видеоигры, азартные игры, переедание</p><p id="bb4ea410-9db4-494f-9949-06507454073c" class="">Следующий компонент стабилизации — это максимальная алгоритмизация и простота торговых решений.</p><p id="47fe5c66-ea4d-423c-b95e-0fdd231c1238" class="">Торговая система должна быть проста и изящна, ее нужно выстроить таким образом, чтобы исключить переменные. Чем больше переменных, тем больше вариаций, тем больше путей потенциального изменения ваших решений. Пример идеальной алгоритмизации — использование фиксированного RR, когда вы закрываете только условные 3:1. Замечу, что это только пример. Качество подобных систем — тема отдельной
+статьи. Некоторые другие пути борьбы с тильтом обсудим в конце.</p><p id="bd48ffde-7a84-4a08-a714-b125b1443384" class="">Стоит провести небольшое резюмирование по дофамину в контексте тильта. Я постараюсь выражаться предельно ясно. Если вы импульсивны в повседневной жизни, склонны часто изменять решения, если у вас регулярно меняется настроение, вы подвержены влиянию соцсетей, а еще имеете вредные привычки и склонность к азарту, можно говорить о нарушении обмена дофамина.</p><p id="1b352fc1-ae0e-4cfb-afb6-772ffbb7c0de" class="">Это нарушение не является чем-то из рук вон выходящим. Его можно назвать вариантом нормы, однако подобная норма может пагубно влиять на трейдинг. Если вы недополучили свое дофаминовое подкрепление в повседневной жизни, то пойдете получать его на рынке, что приведет к импульсивности и потерям. С другой стороны, недостаток дофамина приведет к снижению мотивации, а в дальнейшем к более тяжелым состояниям депрессивного спектра. Тут важен баланс. Ясно лишь, что наша жизнь перенасыщена погоней за вознаграждением и дофаминовым подкреплением. При таком темпе психика просто выгорит из-за привыкания дофаминовых рецепторов. Я считаю, это повод задуматься о своей жизни и пересмотреть некоторые приоритеты.</p><h3 id="0a3aa018-e311-44c1-a6b0-11a6075a645c" class="">Amygdala</h3><p id="85f86b7d-7bb5-41af-8947-edd8b710d807" class="">Теперь поговорим об активности амигдалы (миндалевидное тело или миндалина) во время тильта. Миндалина — это парная структура в головном мозге, отвечающая за реакции страха, тревоги, агрессии, памяти. На самом деле, миндалина — это не совсем структура, а скорее определенная область, в состав которой входят ядра с похожими функциями.</p><p id="9f623b12-536a-4562-8099-842145911e21" class="">Основные пути попадания информации в миндалину следующие:</p><ol type="1" id="b1ba200a-94bd-4d55-a3b5-03a2b6eb6dc2" class="numbered-list" start="1"><li><strong>Таламо-амигдалярный тракт</strong></li></ol><p id="f7c9e138-c895-4749-b0dc-b282e2586b55" class="">Например, вы увидели что-нибудь потенциально вызывающее страх. Стимул попадает в таламус (это такой условный маршрутизатор), а оттуда в миндалину, формируя первичную быструю реакцию.</p><ol type="1" id="dc70f958-0512-4da8-b499-2d2c67243ee1" class="numbered-list" start="2"><li><strong>Таламо-кортико-амигдалярный тракт</strong></li></ol><p id="80de13f8-8d33-4af2-89f4-bad38c13b9c0" class="">То же самое, что и первый тракт, только информация, перед тем как попасть в миндалину обрабатывается в коре полушарий. Это позволяет более основательно и систематизировано оценить, что же все-таки случилось и выдать реакцию, правда не такую быструю.</p><p id="783ffec7-7417-4dd9-a978-b1352b848654" class="">
+</p><p id="46e5d992-1263-405d-ade3-622fc4c46247" class="">Эти пути задействованы в формировании реакции тревоги и агрессии при визуальном восприятии события, которое привело к тильту. Миндалина будет также активироваться и при эмоциональном переживании неудач, и при несоответствии ожиданий и результата. От миндалины отходит множество нейронов, которые обеспечивают передачу импульсов в
+структуры, ответственные за проявление тревоги и агрессии. Например, миндалина будет активировать гипоталамо-гипофизарно-надпочечниковую ось.</p><p id="e4c15d03-7bb3-454e-af9c-107a1f9c1f41" class="">О ней поговорим конкретнее:</p><ol type="1" id="e13ba903-107d-4723-8b3f-f6c51454a04f" class="numbered-list" start="1"><li>От миндалины поступает сигнал в гипоталамус</li></ol><ol type="1" id="96614c8d-0ebf-4cc5-858a-8b2d9379bd8d" class="numbered-list" start="2"><li>Гипоталамус выделяет релизинг гормон - кортиколиберин</li></ol><ol type="1" id="ac8a11d2-d17e-452e-806a-7f887ba394a5" class="numbered-list" start="3"><li>Кортиколиберин воздействует на переднюю долю гипофиза</li></ol><ol type="1" id="69b4c8b9-4564-404e-889b-526ee6094782" class="numbered-list" start="4"><li>Гипофиз выделяет адренокортикотропный гормон (АКТГ)</li></ol><ol type="1" id="b7970723-f16f-4827-99a6-0e432852ce01" class="numbered-list" start="5"><li>АКТГ влияет на надпочечники, а те в свою очередь
+выделяют кортизол</li></ol><h3 id="72c683d6-e858-4264-80f4-8fceab8ae0a2" class="">Почему это важно?</h3><p id="53610ef5-3118-4c64-ab93-c5ccf08e84cb" class="">Кортизол — гормон стресса. При регулярных неудачах и тильте его концентрация в плазме крови будет повышенной. Кортизол, говоря коротко, негативно влияет на синтез мозговых нейротрофических факторов (BDNF), непосредственно воздействуя на глюкокортикоидные рецепторы и снижая экспрессию генов ответственных за их синтез. Этот BDNF является основой выживания и дифференциации нейронов, а также он участвует в нейрогенезе, формировании новых нейронных связей и во многом чём еще. Я думаю важность этого белка недооценить трудно. Снижение BDNF ведет к буквальному уменьшению некоторых мозговых структур, что приводит к картине развернутой депрессии.</p><h3 id="3ec35099-117e-4fc0-ae4a-a437dc1b5d41" class="">Резюме по миндалине</h3><p id="c3ea927d-3cfc-49c4-b8e0-264f7bf41c1e" class="">Миндалина формирует реакцию агрессии, тревоги, страха. Эти эмоции сопровождают тильт и являются его неотъемлемым компонентом. Сами по себе эти чувства
+подталкивают нас к необдуманным и импульсивным поступкам. Вы стремитесь действовать быстро, потому что это продиктовано отсутствием чувства
+безопасности и стремлением скорее покинуть стрессовое состояние. Естественно, в трейдинге импульсивность — это черта, которая скорее погубит
+депозит, чем увеличит его.</p><p id="97fe4665-be39-4ef3-8401-12aa4b16f044" class="">Каким образом можно воздействовать на миндалину? В центральной нервной системе существуют так называемые тормозные медиаторы. Они оказывают не активирующее, а наоборот, тормозное воздействие на нейроны, тем самым снижая их активность. Одним их
+них является гамма-аминомасляная кислота (ГАМК или GABA). Во время тильта активность миндалины превышает активность ГАМК, что приводит к снижению торможения миндалины. Нужно понимать, что ГАМК не действует селективно, а распространяет свое влияние по всей ЦНС, тормозно воздействуя на VTA и черную субстанцию, снижая тем самым активность дофаминергической системы.</p><p id="62f15396-ca3c-4887-9b4e-58d92aa9eed2" class="">Следует очевидный вопрос: а что если воздействовать
+на ГАМК медикаментозно? Препараты бензодиазепинового ряда, воздействующие на ГАМК, являются рецептурными и обладают большим спектром побочных действий, а также имеют конкретные показания. Поэтому я бы строго не рекомендовал их применение здоровым людям.</p><p id="60ed3a6c-fa6d-41cd-9b33-166048b4b045" class="">Остается биодобавка, которая так и называется — GABA. К сожалению, я так и не нашел хороших, обширных исследований на тему ее эффективности, поэтому вопрос остается открытым и спорным. Судя по всему, ГАМК принятый перорально (через рот), доходит
+до ЦНС в очень ограниченных объемах из-за гематоэнцефалического барьера. С другой стороны, отсутствие строгих противопоказаний делает применение GABA неплохим вариантом частичного (очень частичного) решения проблемы. Выбор за вами.</p><h3 id="bff7c42b-396b-46fe-8398-431b3d81438b" class="">Симпато-адреналовая система.
+Катехоламины</h3><p id="839ab85d-ca2d-491c-a159-c914524068ae" class="">Вегетативная нервная система (ВНС) — отдел ЦНС, автономно регулирующий работу внутренних органов. ВНС функционально делится на симпатическую и парасимпатическую нервную систему. Первая несет возбуждающую функцию, вторая тормозную. Работа ВНС обеспечивает адекватную реакцию организма на внешние и внутренние раздражители. Сознательно повлиять на работу внутренних органов невозможно, этот процесс лежит за пределами человеческого контроля.</p><p id="44a650c4-c49e-481d-a299-ba998343b064" class="">
+</p><p id="3926720c-c458-419b-b420-f3294edcd8f7" class=""><strong>Что происходит во время тильта?</strong>
+Тильт и сопровождающие его эмоциональные переживания — это стресс для организма. Такого рода стресс требует соответствующей работы органов и систем. Происходит мобилизация организма, направленная на пассивно- оборонительную или активно-оборонительную реакцию. Этот процесс регулируется активацией симпатоадреналовой системы, что ведет к выработке катехоламинов мозговым слоем надпочечников. Происходит это под влиянием медиатора ацетилхолина на хромаффинные клетки. Катехоламины — это адреналин и норадренали</p><p id="f87d3d8a-39d2-4152-9d97-0630f29992cd" class="">
+</p><p id="20d224aa-5080-43d3-a3d5-6221af0aaa45" class="">Поговорим про то что происходит при выбросе адреналина. Адреналин постоянно вырабатывается в низких объемах. Его концентрация увеличивается с ростом уровня тильта. Адреналин воздействует на специфические рецепторы, что приводит к следующему:</p><ol type="1" id="00f1074e-7dbc-4d7e-97c9-136599fb9647" class="numbered-list" start="1"><li>Рост артериального давления</li></ol><ol type="1" id="4be2ce71-2a22-4236-952c-c95a1c48dd0c" class="numbered-list" start="2"><li>Стимуляция сократимости и возбудимости миокарда - рост
+частоты сердечных сокращений (чтоб обеспечить ткани
+и органы кислородом на случай борьбы или бегства)</li></ol><ol type="1" id="aa3e425d-bea2-4e6e-92bb-ef4f856aa15a" class="numbered-list" start="3"><li>Расширение зрачков (чтоб повысить остроту зрения)</li></ol><ol type="1" id="36fe86e4-2601-4974-9d6c-1576fb0b9a74" class="numbered-list" start="4"><li>Повышение работоспособности скелетных мышц</li></ol><ol type="1" id="5ace659f-d0de-45b3-a788-858d648b9b3c" class="numbered-list" start="5"><li>Расширение бронхов (для увеличение вентиляции)</li></ol><ol type="1" id="6c4e6f32-8c0c-4b28-865a-e1b546a62948" class="numbered-list" start="6"><li> Рост уровня глюкозы крови</li></ol><ol type="1" id="d893ff07-14bb-4b12-992a-49a7074e331a" class="numbered-list" start="7"><li>Повышение теплообразования</li></ol><ol type="1" id="3244b7fe-c0ae-43ec-adea-156b63aeb71d" class="numbered-list" start="8"><li>Усиление внимания, концентрации</li></ol><p id="9103b2cf-78be-4d79-bc96-d0f396a03adf" class="">Думаю теперь становится понятно, почему при стрессе повышается ЧСС и зачем это все нужно. Вышеописанные свойства адреналина в полной мере можно ощутить при воздействии сильного внешнего раздражителя. Например, если на вас резко начнет
+лаять собака. Во время тильта эти эффекты будут выражены не настолько ярко, однако вы все равно их почувствуете.</p><h1 id="21b0da4c-47e4-4908-9ed3-42cbf823cf7d" class="">Профилактика тильта</h1><p id="f836f58f-ed70-458a-a734-47742b7a784f" class="">Непосредственно во время тильта, человек теряет критичность по отношению к свои действиям. Бороться с тильтом нужно до того как он наступил, вот несколько
+практичных кейсов:</p><ol type="1" id="02ccd28c-f4d4-490d-bef3-472f98aaa7cb" class="numbered-list" start="1"><li>Тотальная алгоритмизация торговой системы. В ней должны быть прописаны абсолютно все ваши шаги: в какие позиции вы входите/не входите и почему, конкретные точки входа и выхода для каждого сетапа, что будете делать, если цена не дойдет до тейка и т.д. Зачем это нужно? Тильт начинается там, где заканчивается ваш план. Свобода от плана открывает свободу действий, свобода действий приведет к необдуманному решению. Приведу пример из медицины. Многим людям кажется что медицина — это искусство,
+где к вопросу подходят со стороны творчества. По факту творчество уничтожает унификацию. Специалист в одинаковых ситуациях начинает действовать по-
+разному, что приводит к нежелательным последствиям. Поэтому в медицине используют протоколы и гайдлайны, в которых прописан подробный алгоритм действий на случай той или иной болезни.</li></ol><ol type="1" id="113c4d4b-817f-49dd-a924-47d7aaba072c" class="numbered-list" start="2"><li>Уменьшение количества переменных в вашей системе. По крайней мере для начала. Чем больше переменных, тем больше вероятность начать действовать эмоционально.</li></ol><ol type="1" id="cd609bd4-2ee3-44bd-a7ec-2652c9121b49" class="numbered-list" start="3"><li>Фиксируйте позиции частично, если это укладывается в вашу систему. Таким образом можно компенсировать чувство жадности, когда вы
+зафиксировали позицию, а цена ушла дальше. Жадность — предиктор тильта.</li></ol><ol type="1" id="c4e9cb88-b4a6-477a-b847-3c8299060910" class="numbered-list" start="4"><li>Переводите позицию в безубыток вовремя. Если выделаете это слишком рано, высока вероятность остаться без позиции. В дальнейшем, если цена все же уйдет в
+предполагаемую вами сторону, высока вероятность, что вы прыгнете в уходящий поезд из-за жадности со всеми вытекающими. Иначе вы будете наблюдать за тем, как цена без вас пришла ко всем тейкам. Чувство эмоциональной несправедливости — предиктор тильта.</li></ol><ol type="1" id="bb35261f-3dfe-46af-8217-9ca5e54f5993" class="numbered-list" start="5"><li>Заранее установите дневной лимит по убыткам и профиту. После достижения лимита - ваша торговля на этот день заканчивается.</li></ol><ol type="1" id="efc7bd5f-6332-4b70-9bc1-49e87195530b" class="numbered-list" start="6"><li>После выхода из позиции по стопу оставьте торговый терминал минимум на 20-30 минут. На самом деле, здесь тонкая грань. Умение переоткрыть позицию
+после стопа — необходимый навык, но на начальном этапе лучше избегать таких попыток. После убытков человек может частично терять критику к своим
+действиям. Небольшой отдых вернет вас к работе в здравом уме.
+Вы сможете проанализиваровать свою ошибку и сделать
+соответствующие выводы. </li></ol><ol type="1" id="37a0ddc4-0f6b-45d2-abad-edd7da8cf178" class="numbered-list" start="7"><li>Этот пункт повторяет пункт No6, только касается он не стопов, а тейков. На начальных этапах череда тейков может привести к переоценке своих способностей и
+дальнейшему повышению рисков. Повышение рисков — предиктор тильта.</li></ol><ol type="1" id="c7e0f74a-5bfa-42fd-88e8-544765929b9a" class="numbered-list" start="8"><li>Ведите дневник эмоций. Оставайтесь честными сами с собой, старайтесь записывать все испытанные эмоции до, во время и после открытия позиции, а также в начале
+сессии и в конце. В будущем анализ этих данных может оказаться весьма полезным.</li></ol><p id="b2a1e4fa-f8cd-4b8e-b8ad-6a687ccb7787" class="">
+</p></div></article></body></html>
